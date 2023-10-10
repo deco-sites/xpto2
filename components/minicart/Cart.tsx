@@ -35,7 +35,7 @@ function Cart({ platform }: Props) {
   }
 
   if (platform === "salesforce") {
-    return <CartShopify />;
+    return <CartSalesforce />;
   }
 
   return null;
