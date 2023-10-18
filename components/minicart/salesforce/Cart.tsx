@@ -2,8 +2,9 @@ import { itemToAnalyticsItem, useCart } from "apps/salesforce/hooks/useCart.ts";
 import BaseCart from "../common/Cart.tsx";
 
 function Cart() {
-  const { cart, loading, mapItemsToAnalyticsItems, updateItem, addCoupon } = useCart();
-  const items = cart.value?.productItems;
+  const { cart, loading, mapItemsToAnalyticsItems, updateItem, addCoupon } =
+    useCart();
+  const items = cart.value?.productItems ?? [];
   const locale = cart.value?.locale;
   const currencyCode = cart.value?.currency;
   const total = cart.value?.productTotal ?? 0;
@@ -23,7 +24,7 @@ function Cart() {
           sale: item.price,
           list: item.basePrice,
         },
-      })) ?? []}
+      }))}
       total={total}
       subtotal={subtotal}
       discounts={discounts}
@@ -36,7 +37,7 @@ function Cart() {
       onAddCoupon={(text) => addCoupon({ text })}
       onUpdateQuantity={(quantity, index) => {
         const item = items?.[index];
-        return updateItem({ itemId:item?.itemId!, quantity })
+        return updateItem({ itemId: item?.itemId!, quantity });
       }}
       itemToAnalyticsItem={(index) => {
         const item = items?.[index];

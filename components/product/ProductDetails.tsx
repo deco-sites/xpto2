@@ -79,6 +79,7 @@ function ProductInfo({ page, layout }: { page: ProductDetailsPage } & Props) {
     sku
   } = product;
 
+
   const description = product.description || isVariantOf?.description;
   const {
     price = 0,
