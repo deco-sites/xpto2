@@ -202,7 +202,6 @@ function ProductInfo({ page, layout }: { page: ProductDetailsPage } & Props) {
                   productGroupID={productGroupID}
                   price={price}
                   discount={discount}
-                  seller={seller}
                 />
               )}
             </>
