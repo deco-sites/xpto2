@@ -76,7 +76,6 @@ function ProductCard(
   const { listPrice, price, installments } = useOffer(offers);
   const possibilities = useVariantPossibilities(hasVariant, product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
-
   const l = layout;
   const align =
     !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
